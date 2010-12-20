@@ -11,6 +11,7 @@
 		18C09B0E12BEF2010022A8EF /* ffmpeg_context.c in Sources */ = {isa = PBXBuildFile; fileRef = 18C09B0812BEF2010022A8EF /* ffmpeg_context.c */; };
 		18C09B0F12BEF2010022A8EF /* image_converter.c in Sources */ = {isa = PBXBuildFile; fileRef = 18C09B0A12BEF2010022A8EF /* image_converter.c */; };
 		18C09B1012BEF2010022A8EF /* image_spliter.c in Sources */ = {isa = PBXBuildFile; fileRef = 18C09B0C12BEF2010022A8EF /* image_spliter.c */; };
+		18C09D5812BF46380022A8EF /* ImageTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C09D5712BF46380022A8EF /* ImageTexture.m */; };
 		1D3623260D0F684500981E51 /* Lab2AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* Lab2AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -35,6 +36,8 @@
 		18C09B0C12BEF2010022A8EF /* image_spliter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = image_spliter.c; sourceTree = "<group>"; };
 		18C09B0D12BEF2010022A8EF /* image_spliter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = image_spliter.h; sourceTree = "<group>"; };
 		18C09B1112BEF2110022A8EF /* logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logger.h; sourceTree = "<group>"; };
+		18C09D5612BF46380022A8EF /* ImageTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTexture.h; sourceTree = "<group>"; };
+		18C09D5712BF46380022A8EF /* ImageTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTexture.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* Lab2AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lab2AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* Lab2AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lab2AppDelegate.m; sourceTree = "<group>"; };
@@ -90,6 +93,8 @@
 				187EB5F512BCC4CC00F1C7C2 /* Drawable.h */,
 				187EB5F612BCC4EF00F1C7C2 /* Shape.h */,
 				187EB5F712BCC4EF00F1C7C2 /* Shape.m */,
+				18C09D5612BF46380022A8EF /* ImageTexture.h */,
+				18C09D5712BF46380022A8EF /* ImageTexture.m */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 				18C09B0E12BEF2010022A8EF /* ffmpeg_context.c in Sources */,
 				18C09B0F12BEF2010022A8EF /* image_converter.c in Sources */,
 				18C09B1012BEF2010022A8EF /* image_spliter.c in Sources */,
+				18C09D5812BF46380022A8EF /* ImageTexture.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

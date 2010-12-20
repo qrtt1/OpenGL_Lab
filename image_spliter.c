@@ -33,12 +33,18 @@ uint8_t* getTexture(uint8_t* data, int limit, int linesize, int tw, int th)
     memset(split, 0, len);
 
     int base = (th * 64 * linesize) + tw * 64 * 4;
+    int total = base;
     src += base;
     int i, j;
     for(i = 0; i < 64; i++)
     {
-        memcpy(split, src, 64 * 4);
+        if(total + linesize < limit)
+        {
+            memcpy(split, src, 64 * 4);
+        }
+       
         src += linesize;
+        total += linesize;
         split += (64 * 4);
     }
 

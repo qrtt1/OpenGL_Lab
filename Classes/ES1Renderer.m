@@ -100,11 +100,12 @@
 */
 	id <Drawable> s = [[Shape alloc] init];
 	[s render];
-
     // This application only creates a single color renderbuffer which is already bound at this point.
     // This call is redundant, but needed if dealing with multiple renderbuffers.
     glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
     [context presentRenderbuffer:GL_RENDERBUFFER_OES];
+    
+    [s dealloc];
 }
 
 - (BOOL)resizeFromLayer:(CAEAGLLayer *)layer
@@ -143,6 +144,8 @@
     if ([EAGLContext currentContext] == context)
         [EAGLContext setCurrentContext:nil];
 
+    
+    
     [context release];
     context = nil;
 

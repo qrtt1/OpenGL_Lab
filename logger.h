@@ -15,8 +15,8 @@
 
 
 #ifdef ENABLE_LOGGING
-#define logD(tag, fmt, ...) do{printf(fmt, ## __VA_ARGS__);printf("\n");}while(0)
-//#define logD(tag, fmt, ...)
+//#define logD(tag, fmt, ...) do{printf(fmt, ## __VA_ARGS__);printf("\n");}while(0)
+#define logD(tag, fmt, ...)
 #else
 #define logD(tag, fmt, ...)
 #endif
