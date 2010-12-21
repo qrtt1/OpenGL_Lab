@@ -12,6 +12,8 @@
 		18C09B0F12BEF2010022A8EF /* image_converter.c in Sources */ = {isa = PBXBuildFile; fileRef = 18C09B0A12BEF2010022A8EF /* image_converter.c */; };
 		18C09B1012BEF2010022A8EF /* image_spliter.c in Sources */ = {isa = PBXBuildFile; fileRef = 18C09B0C12BEF2010022A8EF /* image_spliter.c */; };
 		18C09D5812BF46380022A8EF /* ImageTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C09D5712BF46380022A8EF /* ImageTexture.m */; };
+		18C09E9112C05B3E0022A8EF /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C09E9012C05B3E0022A8EF /* Util.m */; };
+		18C09ED112C0701C0022A8EF /* ScreenMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C09ED012C0701C0022A8EF /* ScreenMode.m */; };
 		1D3623260D0F684500981E51 /* Lab2AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* Lab2AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -38,6 +40,10 @@
 		18C09B1112BEF2110022A8EF /* logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logger.h; sourceTree = "<group>"; };
 		18C09D5612BF46380022A8EF /* ImageTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTexture.h; sourceTree = "<group>"; };
 		18C09D5712BF46380022A8EF /* ImageTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTexture.m; sourceTree = "<group>"; };
+		18C09E8F12C05B3E0022A8EF /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		18C09E9012C05B3E0022A8EF /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		18C09ECF12C0701C0022A8EF /* ScreenMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenMode.h; sourceTree = "<group>"; };
+		18C09ED012C0701C0022A8EF /* ScreenMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenMode.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* Lab2AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lab2AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* Lab2AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lab2AppDelegate.m; sourceTree = "<group>"; };
@@ -91,6 +97,10 @@
 			isa = PBXGroup;
 			children = (
 				187EB5F512BCC4CC00F1C7C2 /* Drawable.h */,
+				18C09E8F12C05B3E0022A8EF /* Util.h */,
+				18C09E9012C05B3E0022A8EF /* Util.m */,
+				18C09ECF12C0701C0022A8EF /* ScreenMode.h */,
+				18C09ED012C0701C0022A8EF /* ScreenMode.m */,
 				187EB5F612BCC4EF00F1C7C2 /* Shape.h */,
 				187EB5F712BCC4EF00F1C7C2 /* Shape.m */,
 				18C09D5612BF46380022A8EF /* ImageTexture.h */,
@@ -245,6 +255,8 @@
 				18C09B0F12BEF2010022A8EF /* image_converter.c in Sources */,
 				18C09B1012BEF2010022A8EF /* image_spliter.c in Sources */,
 				18C09D5812BF46380022A8EF /* ImageTexture.m in Sources */,
+				18C09E9112C05B3E0022A8EF /* Util.m in Sources */,
+				18C09ED112C0701C0022A8EF /* ScreenMode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

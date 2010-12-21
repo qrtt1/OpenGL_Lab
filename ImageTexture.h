@@ -17,7 +17,11 @@
     
     GLuint* textures;
     GLuint textureLen;
+
 }
+
+static GLfloat OriginX = 0.0f;
+static GLfloat OriginY = 0.0f;
 
 -(id) initWithImageData: (uint8_t*)data limit:(int)length ctx:(FFmpegContext*)c aPointBytes:(int) bytes;
 -(GLuint)getTextureAtX:(int)x Y:(int)y;

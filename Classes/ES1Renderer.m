@@ -9,6 +9,7 @@
 #import "ES1Renderer.h"
 #import "Drawable.h"
 #import "Shape.h"
+#import "ScreenMode.h"
 
 @implementation ES1Renderer
 
@@ -49,25 +50,6 @@
 
 - (void)render
 {
-    // Replace the implementation of this method to do your own custom drawing
-/*
-    static const GLfloat squareVertices[] = {
-        -0.5f,  -0.33f,
-         0.5f,  -0.33f,
-        -0.5f,   0.33f,
-         0.5f,   0.33f,
-    };
-
-    static const GLubyte squareColors[] = {
-        255, 255,   0, 255,
-        0,   255, 255, 255,
-        0,     0,   0,   0,
-        255,   0, 255, 255,
-    };
-
-    static float transY = 0.0f;
-*/
-	
     // This application only creates a single context which is already set current at this point.
     // This call is redundant, but needed if dealing with multiple contexts.
     [EAGLContext setCurrentContext:context];
@@ -80,7 +62,24 @@
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     
-    glOrthof(0.0f, backingHeight, backingWidth, 0.0f, -1.0f, 1.0f);
+    
+    //glOrthof(backingHeight, 0.0f, backingWidth, 0.0f, 1.0f, -1.0f);
+    
+    
+    // this.
+    //glOrthof(backingWidth, 0.0f, 0.0f, backingHeight, -1.0f, 1.0f);
+    
+    //glOrthof(0.0f, backingHeight, backingWidth, 0.0f, -1.0f, 1.0f);
+    
+    /* 將參數交給 ScreenMode 管理 */
+    if(TRUE)
+    {
+        id sm = [ScreenMode fitVideoWithWidth:backingWidth height:backingHeight];
+        glOrthof([sm left], [sm right], [sm bottom], [sm top], [sm near], [sm far]);
+        [sm release];
+        
+    }
+    
     //glOrthof(-1.0f, 1.0f, -1.5f, 1.5f, -1.0f, 1.0f);
     
     glMatrixMode(GL_MODELVIEW);

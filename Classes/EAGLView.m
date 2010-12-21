@@ -47,7 +47,6 @@
  
 		/* 只要 gles 1 */
         renderer = [[ES1Renderer alloc] init];
-		
 
         animating = FALSE;
         displayLinkSupported = FALSE;

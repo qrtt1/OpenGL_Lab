@@ -15,4 +15,6 @@
 	
 }
 
+static GLfloat angle = 0.0f;
+
 @end

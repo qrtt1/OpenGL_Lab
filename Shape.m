@@ -9,10 +9,14 @@
 #import "Shape.h"
 #include "ffmpeg_context.h"
 #include "ImageTexture.h"
+#import "Util.h"
 
 static BOOL getPix = FALSE;
 
 FFmpegContext _ctx, *ctx = &_ctx;
+
+static double startTime = -0.1f;
+static long renderCount = 0;
 
 
 @implementation Shape
@@ -36,6 +40,11 @@ FFmpegContext _ctx, *ctx = &_ctx;
 //            closeMediaSource(ctx); 
             getPix = TRUE;
         }
+        
+        if (startTime < 0)
+        {
+            startTime = [Util getTime];   
+        }
 
     }
     return self;
@@ -43,6 +52,7 @@ FFmpegContext _ctx, *ctx = &_ctx;
 
 -(void)renderSplitTextureAtCol:(GLfixed)c row:(GLfixed)r textures:(ImageTexture*)imageTexture
 {
+    
     GLfixed x = c * 64;
     GLfixed y = r * 64;
     
@@ -69,6 +79,12 @@ FFmpegContext _ctx, *ctx = &_ctx;
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glPushMatrix();
     
+    /*
+    glTranslatef(640.0f + 64.0f , 780.0f, 0);
+    glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
+    glScalef(2.0f, 2.0f, 1.0f);
+    */
+     
     glVertexPointer(2, GL_FLOAT, 0, squareVertices);
     glEnableClientState(GL_VERTEX_ARRAY);
     
@@ -83,6 +99,7 @@ FFmpegContext _ctx, *ctx = &_ctx;
     
     glPopMatrix();
 }
+
 
 
 -(void)render
@@ -109,7 +126,16 @@ FFmpegContext _ctx, *ctx = &_ctx;
         }
     }
     
+    angle += 5.0f;
+    
     [imageTexture dealloc];
+    
+    
+    renderCount ++;
+    double timediff = [Util getTime] - startTime;
+    if (renderCount) {
+        NSLog(@"fps: %f",  renderCount / timediff);
+    }
     
 }
 

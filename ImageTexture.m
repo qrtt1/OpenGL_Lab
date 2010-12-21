@@ -8,11 +8,15 @@
 
 #import "ImageTexture.h"
 
+
 int tw = 0, th = 0;
 
 @implementation ImageTexture
 -(id) initWithImageData: (uint8_t*)data limit:(int)length ctx:(FFmpegContext*)c aPointBytes:(int) bytes
 {
+    
+  
+    
     textures = NULL;
     if(self = [super init])
     {
