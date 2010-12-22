@@ -117,8 +117,8 @@
 				18C09B0912BEF2010022A8EF /* ffmpeg_context.h */,
 				18C09B0A12BEF2010022A8EF /* image_converter.c */,
 				18C09B0B12BEF2010022A8EF /* image_converter.h */,
-				18C09B0C12BEF2010022A8EF /* image_spliter.c */,
 				18C09B0D12BEF2010022A8EF /* image_spliter.h */,
+				18C09B0C12BEF2010022A8EF /* image_spliter.c */,
 			);
 			name = ffmpeg;
 			sourceTree = "<group>";

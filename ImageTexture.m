@@ -7,6 +7,7 @@
 //
 
 #import "ImageTexture.h"
+#include "image_spliter.h"
 
 
 int tw = 0, th = 0;
@@ -14,9 +15,7 @@ int tw = 0, th = 0;
 @implementation ImageTexture
 -(id) initWithImageData: (uint8_t*)data limit:(int)length ctx:(FFmpegContext*)c aPointBytes:(int) bytes
 {
-    
-  
-    
+        
     textures = NULL;
     if(self = [super init])
     {
@@ -42,7 +41,7 @@ int tw = 0, th = 0;
                     glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
                     //
                     /* 色彩的參數將 圖片的設為 BGRA，才會正確顯示。但在 x86 下，似乎是 RGBA 才對。 */
-                    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, 64, 64, 0, GL_BGRA, GL_UNSIGNED_BYTE, split);
+                    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, TEXTURE_BLOCK_SIZE, TEXTURE_BLOCK_SIZE, 0, GL_BGRA, GL_UNSIGNED_BYTE, split);
                     cnt++;
                     free(split);
                 }

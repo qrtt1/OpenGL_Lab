@@ -32,6 +32,7 @@ static long renderCount = 0;
             //const char* source = "mms://210.59.147.3/wmtencoder/100k.wmv";
             
             const char *source = "mmsh://wmslive.media.hinet.net/bc000097";
+//            const char *source = "http://172.16.0.146:8000/sample.mp4";
             openMediaSource(ctx, source, NULL);
             getMediaInfo(ctx);
                          
@@ -53,14 +54,14 @@ static long renderCount = 0;
 -(void)renderSplitTextureAtCol:(GLfixed)c row:(GLfixed)r textures:(ImageTexture*)imageTexture
 {
     
-    GLfixed x = c * 64;
-    GLfixed y = r * 64;
+    GLfixed x = c * TEXTURE_BLOCK_SIZE;
+    GLfixed y = r * TEXTURE_BLOCK_SIZE;
     
     const GLfloat squareVertices[] = {
         0.0f + x, 0.0f + y,
-        0.0f + x, 64.0f + y,
-        64.0f + x, 0.0f + y,
-        64.0f + x, 64.0f + y
+        0.0f + x, TEXTURE_BLOCK_SIZE + y,
+        TEXTURE_BLOCK_SIZE + x, 0.0f + y,
+        TEXTURE_BLOCK_SIZE + x, TEXTURE_BLOCK_SIZE + y
     };
     
     glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
@@ -133,7 +134,7 @@ static long renderCount = 0;
     
     renderCount ++;
     double timediff = [Util getTime] - startTime;
-    if (renderCount) {
+    if (renderCount % 30 == 0) {
         NSLog(@"fps: %f",  renderCount / timediff);
     }
     
