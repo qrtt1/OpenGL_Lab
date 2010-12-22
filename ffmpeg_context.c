@@ -965,7 +965,7 @@ int seekToFrame(FFmpegContext* ctx) {
     while(1)
     {
 
-        int bufferSize = avpicture_get_size(PIX_FMT_RGB32, ctx->videoCtx->height, ctx->videoCtx->height);
+        int bufferSize = avpicture_get_size(PIX_FMT_RGB565, ctx->videoCtx->height, ctx->videoCtx->height);
         if(bufferSize == 0)
         {
             nextFrame(ctx);
@@ -992,7 +992,7 @@ int estimateBufferSize(FFmpegContext* ctx)
 
     if(ctx->videoIndex > 0)
     {
-        int bufferSize = avpicture_get_size(PIX_FMT_RGB32, ctx->videoCtx->height, ctx->videoCtx->height);
+        int bufferSize = avpicture_get_size(PIX_FMT_RGB565, ctx->videoCtx->height, ctx->videoCtx->height);
         int max = MAX(bufferSize, DEFAULT_AUDIO_BUFFER_SIZE);
         ctx->requiredBufferSize = max;
         return max;

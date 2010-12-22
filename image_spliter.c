@@ -1,6 +1,7 @@
 #include "image_spliter.h"
 
 const int TEXTURE_BLOCK_SIZE = 128;
+const int RGB_BYTES = 2;
 
 void getTextureLayout(FFmpegContext *ctx, int *tw, int *th)
 {
@@ -27,14 +28,14 @@ void getTextureLayout(FFmpegContext *ctx, int *tw, int *th)
 
 uint8_t* getTexture(uint8_t* data, int limit, int linesize, int tw, int th)
 {
-    const int len = TEXTURE_BLOCK_SIZE * TEXTURE_BLOCK_SIZE * 4;
+    const int len = TEXTURE_BLOCK_SIZE * TEXTURE_BLOCK_SIZE * RGB_BYTES;
     uint8_t *out = malloc(len);
     uint8_t *src = data;
     uint8_t *split = out;
 
     memset(split, 0, len);
 
-    int base = (th * TEXTURE_BLOCK_SIZE * linesize) + tw * TEXTURE_BLOCK_SIZE * 4;
+    int base = (th * TEXTURE_BLOCK_SIZE * linesize) + tw * TEXTURE_BLOCK_SIZE * RGB_BYTES;
     int total = base;
     src += base;
     int i;
@@ -43,12 +44,13 @@ uint8_t* getTexture(uint8_t* data, int limit, int linesize, int tw, int th)
         
         if(total + linesize < limit)
         {
-            memcpy(split, src, TEXTURE_BLOCK_SIZE * 4);
-
+            memcpy(split, src, TEXTURE_BLOCK_SIZE * RGB_BYTES);
+            src += linesize;
+            total += linesize;
+            split += (TEXTURE_BLOCK_SIZE * RGB_BYTES);
         }
-        src += linesize;
-        total += linesize;
-        split += (TEXTURE_BLOCK_SIZE * 4);
+        
+        
     }
 
     return out;

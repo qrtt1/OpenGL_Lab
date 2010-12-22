@@ -3,16 +3,16 @@
 Yuv2RgbContext* openYuv2RgbContext(Yuv2RgbContext* ctr, int width, int height)
 {
     ctr->converter = sws_getContext(width, height, PIX_FMT_YUV420P, 
-                width, height, PIX_FMT_RGB32, SWS_BICUBIC, NULL, NULL, NULL);
+                width, height, PIX_FMT_RGB565, SWS_BICUBIC, NULL, NULL, NULL);
     
     ctr->rgbFrame = avcodec_alloc_frame();
-    int size = avpicture_get_size(PIX_FMT_RGB32, width, height);
+    int size = avpicture_get_size(PIX_FMT_RGB565, width, height);
     ctr->rgbBuffer = av_malloc( sizeof(uint8_t) * size );
     ctr->rgbBufferSize = size;
 
     // bind buffer and frame
     avpicture_fill((AVPicture*) ctr->rgbFrame, 
-            ctr->rgbBuffer, PIX_FMT_RGB32, width, height); 
+            ctr->rgbBuffer, PIX_FMT_RGB565, width, height); 
 
     return ctr;
 }

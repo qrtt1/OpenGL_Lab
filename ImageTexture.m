@@ -27,7 +27,7 @@ int tw = 0, th = 0;
         int cnt = 0;
         for (int j=0; j<th; j++) {
             for (int i=0; i<tw; i++) {
-                split = getTexture(data, length, c->videoCtx->width * 4, i, j);
+                split = getTexture(data, length, c->videoCtx->width * bytes, i, j);
                 if(split)
                 {
                     glGenTextures(1, &textures[cnt]);
@@ -40,8 +40,8 @@ int tw = 0, th = 0;
                     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
                     glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
                     //
-                    /* 色彩的參數將 圖片的設為 BGRA，才會正確顯示。但在 x86 下，似乎是 RGBA 才對。 */
-                    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, TEXTURE_BLOCK_SIZE, TEXTURE_BLOCK_SIZE, 0, GL_BGRA, GL_UNSIGNED_BYTE, split);
+                    
+                    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, TEXTURE_BLOCK_SIZE, TEXTURE_BLOCK_SIZE, 0, GL_RGB, GL_UNSIGNED_SHORT_5_6_5, split);
                     cnt++;
                     free(split);
                 }

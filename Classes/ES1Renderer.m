@@ -62,15 +62,6 @@
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     
-    
-    //glOrthof(backingHeight, 0.0f, backingWidth, 0.0f, 1.0f, -1.0f);
-    
-    
-    // this.
-    //glOrthof(backingWidth, 0.0f, 0.0f, backingHeight, -1.0f, 1.0f);
-    
-    //glOrthof(0.0f, backingHeight, backingWidth, 0.0f, -1.0f, 1.0f);
-    
     /* 將參數交給 ScreenMode 管理 */
     if(TRUE)
     {
@@ -80,23 +71,14 @@
         
     }
     
-    //glOrthof(-1.0f, 1.0f, -1.5f, 1.5f, -1.0f, 1.0f);
-    
     glMatrixMode(GL_MODELVIEW);
-    //glLoadIdentity();
+    glLoadIdentity();
    // glTranslatef(0.0f, (GLfloat)(sinf(transY)/2.0f), 0.0f);
    // transY += 0.075f;
 
     glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
-/*    
-    glVertexPointer(2, GL_FLOAT, 0, squareVertices);
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glColorPointer(4, GL_UNSIGNED_BYTE, 0, squareColors);
-    glEnableClientState(GL_COLOR_ARRAY);
-
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-*/
+ 
 	id <Drawable> s = [[Shape alloc] init];
 	[s render];
     // This application only creates a single color renderbuffer which is already bound at this point.
@@ -104,7 +86,7 @@
     glBindRenderbufferOES(GL_RENDERBUFFER_OES, colorRenderbuffer);
     [context presentRenderbuffer:GL_RENDERBUFFER_OES];
     
-    [s dealloc];
+    [s release];
 }
 
 - (BOOL)resizeFromLayer:(CAEAGLLayer *)layer
@@ -142,8 +124,6 @@
     // Tear down context
     if ([EAGLContext currentContext] == context)
         [EAGLContext setCurrentContext:nil];
-
-    
     
     [context release];
     context = nil;

@@ -28,24 +28,22 @@ static long renderCount = 0;
             init_ffmpeg_context();
             
             RESET_CONTEXT_FOR_OPEN(ctx);
-            //const char *source = "mmst://203.69.41.22/NA_IMTV_ONLINETV-1_450K_PC";
+//            const char *source = "mmst://203.69.41.22/NA_IMTV_ONLINETV-1_450K_PC";
             //const char* source = "mms://210.59.147.3/wmtencoder/100k.wmv";
             
             const char *source = "mmsh://wmslive.media.hinet.net/bc000097";
 //            const char *source = "http://172.16.0.146:8000/sample.mp4";
+//            const char *source = "http://172.16.0.146:8000/demo.rmvb";
             openMediaSource(ctx, source, NULL);
             getMediaInfo(ctx);
-                         
-            
             
 //            closeMediaSource(ctx); 
             getPix = TRUE;
         }
         
         if (startTime < 0)
-        {
             startTime = [Util getTime];   
-        }
+       
 
     }
     return self;
@@ -113,7 +111,7 @@ static long renderCount = 0;
         }
         if (ctx->result.type == RESULT_TYPE_VIDEO) {
             //NSLog(@"create new imageTexture");
-            imageTexture = [[ImageTexture alloc] initWithImageData:ctx->result.data limit:ctx->result.bytes ctx:ctx aPointBytes:4];
+            imageTexture = [[ImageTexture alloc] initWithImageData:ctx->result.data limit:ctx->result.bytes ctx:ctx aPointBytes:RGB_BYTES];
             break ;
         }
     }
@@ -134,8 +132,11 @@ static long renderCount = 0;
     
     renderCount ++;
     double timediff = [Util getTime] - startTime;
-    if (renderCount % 30 == 0) {
+    if (renderCount % 60 == 0) {
         NSLog(@"fps: %f",  renderCount / timediff);
+        
+        startTime = [Util getTime];
+        renderCount = 0;
     }
     
 }
